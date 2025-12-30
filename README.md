@@ -185,6 +185,7 @@ it("prevents booking with insufficient balance", async () => {
 - Confirms the revert message is correctly triggered.
 
 Mocha/Chai Results
+
 ![alt text](https://github.com/GeoDorn/dApps_Coursework/blob/main/report/Truffle%20Test.png?raw=true "API Flow Diagram")
 
 
