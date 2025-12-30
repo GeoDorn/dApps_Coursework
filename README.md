@@ -2,7 +2,7 @@
 
 Globotour is a web application that allows users to search for hotels, view offers and explore nearby experiences and book a hotel using a blockchain-powered wallet system. The application is currently a working prototype, integrating a local ganache network and MetaMask to handle payments on a simulated Ethereum network.
 
-# DEPENDENCIES AND SETUP
+# Dependecies and Setup
 ## Node
 
 Node.js and NPM are used to run this web application, with additional required services and packages. 
@@ -57,7 +57,7 @@ npm run devStart
 --Currency Symbol: ETH
 -Import an account using a private key from Ganache
 
-# TESTING
+# Testing
 ## API Testing with Postman
 Initially when creating the API calls and setting the scope of the project. Postman was used to test token authentication and initial fetch requests.
 
@@ -330,12 +330,12 @@ Result: ✓ Pass - Block number, gas, status all visible
 | TC8 | Pass |
 | TC9 | Pass |
 
-# VIDEO DEMONSTRATION
+# Video Demonstration
 
 [Watch the video demonstration](https://github.com/GeoDorn/dApps_Coursework/blob/main/report/Screen%20Recording%202025-12-30%20135559.mp4)
 
 
-# EVAULATION
+# Evaluation
 ## Technologies
 1. Amadeus Travel API
 The Amadeus Travel API was essential in accessing real-world hotel data. The ability to search for hotels in major cities across the globe and retrieve experiences and pricing allowed the prototype to work with "live" data. While the documentation was extremely helpful, having to use two APIs to get one filtered list was an issue. The lack of pagination also proved difficult as I had to then use batches to sort through two JSON arrays to find hotels with availability. However, having a dedicated workspace to build API calls through proved invaluable and was essential in trouble shooting bugs. OAuth2 authentication is robust, users must be careful not to expose sensitive credentials, hence why the .env is not provided in the git repo.
