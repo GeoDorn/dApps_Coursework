@@ -5,10 +5,13 @@ Globotour is a web application that allows users to search for hotels, view offe
 # DEPENDENCIES AND SETUP
 ## Node
 
-Node.js and NPM are used to run the web application. Additional packages and services are required to run Globotour.
+Node.js and NPM are used to run this web application, with additional required services and packages. 
 
-The list of node packages are stored in package.json
-Using "npm install" will install all required compatible versions.
+1. Clone this Repo
+2. With Node and NPM installed, run:
+'''
+npm install
+'''
 
 ## API
 
