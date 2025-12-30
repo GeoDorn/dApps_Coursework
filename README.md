@@ -2,7 +2,9 @@
 
 Globotour is a web application that allows users to search for hotels, view offers and explore nearby experiences and book a hotel using a blockchain-powered wallet system. The application is currently a working prototype, integrating a local ganache network and MetaMask to handle payments on a simulated Ethereum network.
 
-# Dependecies and Setup
+![alt text](https://github.com/GeoDorn/dApps_Coursework/blob/main/report/Homepage%20screenshot.png?raw=true "API Flow Diagram")
+
+# Dependencies and Setup
 ## Node
 
 Node.js and NPM are used to run this web application, with additional required services and packages. 
@@ -24,7 +26,7 @@ Amadeus API is used to power the API calls for GloboTour. You will need to suppl
 
 - AMADEUS_CLIENT_SECRET=YOUR_SECRET
 
-Amadeus is used to query hotels via citycode, hotel offers using that city code with user inputed check-in, check-out and guest numbers and third api call that fetches experiences within the vicinity of the user selected hotel.
+Amadeus is used to query hotels via citycode, hotel offers using that city code with user inputted check-in, check-out and guest numbers and third api call that fetches experiences within the vicinity of the user selected hotel.
 
 ## Blockchain
 
@@ -61,7 +63,7 @@ npm run devStart
 ## API Testing with Postman
 Initially when creating the API calls and setting the scope of the project. Postman was used to test token authentication and initial fetch requests.
 
-Using the publically available [Amadeus Postman Workspace](https://www.postman.com/amadeus4dev/amadeus-for-developers-s-public-workspace/collection/kquqijj/amadeus-for-developers), initial test queries and endpoints could be setup in the server.js.
+Using the publicly available [Amadeus Postman Workspace](https://www.postman.com/amadeus4dev/amadeus-for-developers-s-public-workspace/collection/kquqijj/amadeus-for-developers), initial test queries and endpoints could be setup in the server.js.
 
 The first issue during development was the limitations of the first API call. While you could search for hotels using a citycode, you could not search for availability. In addition to this, the API call to fetch availability, required hotelcode. Therefore, I had to use two API calls to search for available rooms matching the customer's criteria. First to search the city for hotels, and then pass the returning hotelcodes into the second API call to fetch offers from those hotels.
 
@@ -192,7 +194,7 @@ it("prevents booking with insufficient balance", async () => {
 
 ## MetaMask Integration Testing
 
-MetaMask is integrated via injection from the broswer extention. 
+MetaMask is integrated via injection from the broswer extension. 
 ```javascript
 async function ensureWallet() {
   if (!window.ethereum) 
@@ -208,7 +210,7 @@ async function ensureWallet() {
 ```
 The above code taps into the injection and allows MetaMask and the blockchain to communicate with our web app.
 The below code connects the smart contract logic to the front end, allowing the front end to call functions in the smart contract. For testing purposes, 1000 of a currency, in this case USD, is equivalent to 1 ETH.
-It then returns the reciept from the blockchain via ganache.
+It then returns the receipt from the blockchain via ganache.
 
 ```javascript
 async function payForBooking(hotelId, cityCode, price, checkIn, checkOut) {
@@ -343,19 +345,19 @@ The Amadeus Travel API was essential in accessing real-world hotel data. The abi
 2. Smart Contracts
 The blockchain provides unmatched transparency and security for financial transactions, although I found the setup to be quite complex, especially connecting it to MetaMask. Ganache is a great tool to use for testing smart contracts and distributed applications, although it is quite complex for new users. Due to the immutability of smart contracts, once a contract is deployed, it cannot be altered, adding to the security of the transaction.
 
-3. Metamask Wallet Integration
+3. MetaMask Wallet Integration
 While it boasts widespread support, due to the nature of the blockchain, I found MetaMask to be quite rigid. Through testing, many test accounts were created and I was unable to remove them, simply hide them. I also found the web3 injection into the code, difficult to access initially, as I was unable to progress past the transaction confirmation for some time. However, once I was able to successfully connect to the distributed app through blockchain.js, I was able to access the smart contracts and the local ganache network successfully. 
 
 ## Success Criteria
-In conclusion, the prototype GloboTour app fullfils the requirements of the customer. It allows users to make bookings for hotels using a secure smart contracts and blockchain technology as stated in the brief. However there are some further implementations I would make to increase the user experience. 
+In conclusion, the prototype GloboTour app fulfils the requirements of the customer. It allows users to make bookings for hotels using a secure smart contracts and blockchain technology as stated in the brief. However there are some further implementations I would make to increase the user experience. 
 
-- Implement a full role based account system, where customers can log in and access their preivous bookings and information. Staff should be able to look on the app at monitoring information, instead of using the ganache GUI.
+- Implement a full role based account system, where customers can log in and access their previous bookings and information. Staff should be able to look on the app at monitoring information, instead of using the ganache GUI.
 
 - With accounts, implement email confirmations.
 
 - Add additional filters to the initial search box
 
-- Implememnt the ability to book experiences within the app, rather than having to go to the first party.
+- Implement the ability to book experiences within the app, rather than having to go to the first party.
 
 - Be able to withdraw ETH back into your wallet on MetaMask
 
@@ -367,5 +369,5 @@ That being said, the prototype still accomplishes:
 - Smart contract development and deployment (Task 2)
 - Transaction monitoring and management (Task 3)
 - Comprehensive testing strategy (Task 4)
-- Critical evalulation of technlogies (Task 5)
+- Critical evalulation of technologies (Task 5)
 
