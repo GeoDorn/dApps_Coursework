@@ -14,30 +14,42 @@ Node.js and NPM are used to run this web application, with additional required s
 npm install
 ```
 
-  this will install the appropriate node packages.
+With the node packages installed, we can setup the API credentials.
 
 ## API
 
-Amadeus API is used to power the API calls for the hotel search, hotel offers and the fetching experiences in the radius of the hotel.
-Create a .env file in the root of the project and populate:
+Amadeus API is used to power the API calls for GloboTour. You will need to supply your own API Key and Secret. Create a .env file in the root of the project and add:  
 
 - AMADEUS_CLIENT_ID=YOUR_KEY
 
 - AMADEUS_CLIENT_SECRET=YOUR_SECRET
 
+Amadeus is used to query hotels via citycode, hotel offers using that city code with user inputed check-in, check-out and guest numbers and third api call that fetches experiences within the vicinity of the user selected hotel.
+
 ## Blockchain
 
-Ganache and MetaMask is used to simulate the blockchain in a local environment for testing. 
-Inside blockchain.js, replace Contract address with the address from the newly created Ganache instance. 
+For this prototype, Ganache and MetaMask have been used in conjunction to simulate a local blockchain for testing purposes. 
 
-Download ganache and initialize a workspace.
+1. Install both Ganache and MetaMask via their websites.
+2. Create a new workspace inside Ganache which will create 10 accounts for us to use.
+3. Use
+```
+truffle compile
+```
+```
+truffle migrate --reset
+```
 
-Use truffle compile and truffle migrate --reset to deploy smart contract.
+to deploy the smart contract.
 
-From terminal, copy and paste the contract address and insert it into blockchain.js.
+4. From the terminal, take the contract address and insert it into blockchain.js:
+-const HOTEL_BOOKING_ADDRESS = "INSERT BOOKING ADDRESS"
 
-Once the prerequisites have been met, to start project, open terminal: "npm run devStart"
+5. Run the project from the root directory using:
+```
+npm run devStart
+```
+6. Once you have reached the checkout you will be prompted to connect your wallet via MetaMask. Add the local ganache network as a network in MetaMask and add an account using the private key from the accounts screen in Ganache. 
 
-Ensure MetaMask is connected to your local Ganache network (usually RPC http://127.0.0.1:7545)
 
 
