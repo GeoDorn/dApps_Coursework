@@ -184,7 +184,7 @@ it("prevents booking with insufficient balance", async () => {
 - Verifies that the contract prevents bookings when the user does not have enough funds
 - Confirms the revert message is correctly triggered.
 
-Mocha/Chai Results
+# Mocha/Chai Results
 
 ![alt text](https://github.com/GeoDorn/dApps_Coursework/blob/main/report/Truffle%20Test.png?raw=true "API Flow Diagram")
 
