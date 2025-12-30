@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GloboTour - Hotel Booking</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <h1>GloboTour Travel</h1>
+  </header>
+  
+  <section>
+    <h2>Where would you like to stay?</h2>
+    
+    <form id="hotelForm">
+      <div>
+        <label for="destinationCityCode">City Code:</label>
+        <input type="text" id="destinationCityCode" name="destinationCityCode" 
+               maxlength="3" placeholder="e.g. LON, PAR, NYC" required>
+      </div>
+      
+      <div>
+        <label for="guests">Number of Guests:</label>
+        <input type="number" id="guests" name="guests" min="1" value="1" required>
+      </div>
+      
+      <div>
+        <label for="checkInDate">Check-in Date:</label>
+        <input type="date" id="checkInDate" name="checkInDate" required>
+      </div>
+      
+      <div>
+        <label for="checkOutDate">Check-out Date:</label>
+        <input type="date" id="checkOutDate" name="checkOutDate" required>
+      </div>
+      
+      <button type="submit" id="searchHotelsButton">Search for Hotels</button>
+    </form>
+  </section>
+  
+  <section id="hotelResults"></section>
+  <section id="hotelDetails"></section>
+  <section id="hotelOffers"></section>
+  <section id="bookingDetails"></section>
+  <section id="checkoutScreen"></section>
+  <section id="walletScreen"></section>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+  <script src="blockchain.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
