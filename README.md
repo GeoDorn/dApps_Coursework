@@ -71,6 +71,7 @@ In order to prevent too many calls, I collected hotelcodes into an array and pas
 
 When a hotel is selected, using the selected hotel's geo-location, the third API calls 5 experiences and tours within 20km of the hotel and displays them beneath the hotels details. 
 
+![alt text](https://github.com/GeoDorn/dApps_Coursework/blob/main/report/API%20Flow.png?raw=true "API Flow Diagram")
 
 
 ## Smart Contract Testing with Mocha/Chai
