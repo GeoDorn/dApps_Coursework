@@ -330,6 +330,10 @@ Result: ✓ Pass - Block number, gas, status all visible
 | TC8 | Pass |
 | TC9 | Pass |
 
+# VIDEO DEMONSTRATION
+
+<video controls src="https://github.com/GeoDorn/dApps_Coursework/blob/main/report/Screen%20Recording%202025-12-30%20135559.mp4" title="<video src="<video controls src="https://github.com/GeoDorn/dApps_Coursework/blob/main/report/Screen%20Recording%202025-12-30%20135559.mp4" title="path/to/video.mp4"></video>" width="320" height="240" controls></video>"></video>
+
 # EVAULATION
 
 
