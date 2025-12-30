@@ -13,6 +13,7 @@ Node.js and NPM are used to run this web application, with additional required s
 ```
 npm install
 ```
+    this will install the appropriate node packages.
 
 ## API
 
