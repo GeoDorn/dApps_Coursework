@@ -332,7 +332,8 @@ Result: ✓ Pass - Block number, gas, status all visible
 
 # VIDEO DEMONSTRATION
 
-<video controls src="https://github.com/GeoDorn/dApps_Coursework/blob/main/report/Screen%20Recording%202025-12-30%20135559.mp4" title="<video src="<video controls src="https://github.com/GeoDorn/dApps_Coursework/blob/main/report/Screen%20Recording%202025-12-30%20135559.mp4" title="path/to/video.mp4"></video>" width="320" height="240" controls></video>"></video>
+[Watch the video demonstration](https://github.com/GeoDorn/dApps_Coursework/blob/main/report/Screen%20Recording%202025-12-30%20135559.mp4)
+
 
 # EVAULATION
 
