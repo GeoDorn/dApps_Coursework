@@ -9,9 +9,10 @@ Node.js and NPM are used to run this web application, with additional required s
 
 1. Clone this Repo
 2. With Node and NPM installed, run:
-'''
+
+```
 npm install
-'''
+```
 
 ## API
 
