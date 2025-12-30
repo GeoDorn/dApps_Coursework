@@ -238,29 +238,28 @@ async function payForBooking(hotelId, cityCode, price, checkIn, checkOut) {
 ```
 
 # Test Cases
-**TC3.1: Wallet Connection**
+**TC1: Wallet Connection**
 ```
 Action: Click "Connect Wallet"
 Expected: MetaMask popup, successful connection
-Result: ✓ Pass - Connected to 0x5B38Da...
-Time: 2.3s
+Result: ✓ Pass - Connected
 ```
 
-**TC3.2: Network Detection**
+**TC2: Network Detection**
 ```
 Action: Load page with MetaMask connected
 Expected: Detect Ganache network automatically
 Result: ✓ Pass - Network: Localhost (Chain ID: 1337)
 ```
 
-**TC3.3: Account Switching**
+**TC3: Account Switching**
 ```
 Action: Change account in MetaMask
 Expected: App updates wallet address, refreshes balance
 Result: ✓ Pass - Address updated immediately
 ```
 
-**TC3.4: Deposit Transaction**
+**TC4: Deposit Transaction**
 ```
 Action: Deposit 1.0 ETH via UI
 Steps:
@@ -269,44 +268,40 @@ Steps:
   3. Confirm in MetaMask
 Expected: Transaction confirmed, balance updated
 Result: ✓ Pass
-Transaction Hash: 0x742d35Cc6634C0532925a3b844Bc9e7595f0...
-Gas Used: 51,234
 Status: Success
 ```
 
-**TC3.5: Booking Transaction**
+**TC5: Booking Transaction**
 ```
 Action: Complete hotel booking
 Steps:
-  1. Search hotels (LON, 2 guests, Feb 1-5)
-  2. Select "The Savoy"
-  3. Click "Pay" (0.5 ETH)
+  1. Search hotels (BFS, 2 guests, Dec 30 - 31)
+  2. Select "HOLIDAY INN EXP QUEENS QUARTER"
+  3. Click "Pay" (0.104 ETH, 104 GBP)
   4. Confirm in MetaMask
 Expected: Booking confirmed, payment sent, confirmation code generated
 Result: ✓ Pass
-Confirmation: HB4C2F9
-Transaction Hash: 0x8f3e7b...
-ETH Paid: 0.5000
-Gas: 183,567 (0.0036714 ETH)
+Confirmation: HSO5QV6
+Transaction Hash: 0xce36874d266e50ca0ec92aad7a360073aab16ea8eb50e5509d26aa2487028007
 ```
 
-**TC3.6: Insufficient Balance**
+**TC6: Insufficient Balance**
 ```
 Action: Attempt booking with insufficient balance
 Balance: 0.2 ETH
 Booking Cost: 0.5 ETH
 Expected: Error message before MetaMask popup
-Result: ✓ Pass - Error: "Insufficient balance"
+Result: ✓ Pass - Error: ""Insufficient funds in your Globotour wallet. Please deposit ETH before booking.""
 ```
 
-**TC3.7: Transaction Rejection**
+**TC7: Transaction Rejection**
 ```
 Action: Reject transaction in MetaMask
 Expected: Error handled gracefully, no state changes
-Result: ✓ Pass - Alert: "Transaction failed: User denied transaction"
+Result: ✓ Pass - Alert: "Transaction failed"
 ```
 
-**TC3.8: Balance Display**
+**TC8: Balance Display**
 ```
 Action: Check balance after transactions
 Initial: 100 ETH (Ganache default)
@@ -315,35 +310,25 @@ After booking (0.5 ETH): 99 ETH (wallet) + 0.5 ETH (contract)
 Result: ✓ Pass - Balances correct
 ```
 
-**TC3.9: Network Change**
+**TC9: Transaction History**
 ```
-Action: Switch to different network in MetaMask
-Expected: Page reloads, shows network error
-Result: ✓ Pass - Automatic reload, prompts to switch back
-```
-
-**TC3.10: Transaction History**
-```
-Action: View transaction on Etherscan (Ganache)
+Action: View transaction on Ganache
 Expected: All transaction details visible
 Result: ✓ Pass - Block number, gas, status all visible
 ```
 
 #### Test Results Summary
-| Test Case | Status | Time | Gas Cost | Notes |
-|-----------|--------|------|----------|-------|
-| TC3.1 | Pass | 2.3s | - | Smooth connection |
-| TC3.2 | Pass | 0.5s | - | Auto-detection works |
-| TC3.3 | Pass | 1.1s | - | Instant update |
-| TC3.4 | Pass | 8.7s | 51,234 | Includes user confirmation |
-| TC3.5 | Pass | 12.4s | 183,567 | Full flow successful |
-| TC3.6 | Pass | 0.2s | - | Validation before tx |
-| TC3.7 | Pass | 3.1s | - | Error handling correct |
-| TC3.8 | Pass | 1.5s | - | Accurate tracking |
-| TC3.9 | Pass | 2.8s | - | Graceful handling |
-| TC3.10 | Pass | 0.9s | - | Full transparency |
-
-
+| Test Case | Status |
+|-----------|--------|
+| TC1 | Pass |
+| TC2 | Pass |
+| TC3 | Pass |
+| TC4 | Pass |
+| TC5 | Pass |
+| TC6 | Pass |
+| TC7 | Pass |
+| TC8 | Pass |
+| TC9 | Pass |
 
 # EVAULATION
 

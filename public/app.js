@@ -268,7 +268,26 @@ async function completeBooking() {
 
     } catch (error) {
         console.error("Payment failed:", error);
-        alert("Transaction failed: " + error.message);
+    
+        let userMessage = "Transaction failed. Please try again.";
+    
+        // Ethers / MetaMask JSON-RPC errors
+        if (error.code === "CALL_EXCEPTION" || error.code === -32603) {
+            const message =
+                error?.error?.message ||
+                error?.data?.message ||
+                error?.message ||
+                "";
+    
+            if (message.toLowerCase().includes("insufficient balance")) {
+                userMessage =
+                    "Insufficient funds in your Globotour wallet. Please deposit ETH before booking.";
+            } else if (message.toLowerCase().includes("user rejected")) {
+                userMessage = "Transaction cancelled in MetaMask.";
+            }
+        }
+    
+        alert(userMessage);
     }
 }
 
