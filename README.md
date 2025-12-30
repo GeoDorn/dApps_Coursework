@@ -14,7 +14,7 @@ Node.js and NPM are used to run this web application, with additional required s
 npm install
 ```
 
-With the node packages installed, we can setup the API credentials.
+    With the node packages installed, we can setup the API credentials.
 
 ## API
 
@@ -49,7 +49,9 @@ to deploy the smart contract.
 ```
 npm run devStart
 ```
-6. Once you have reached the checkout you will be prompted to connect your wallet via MetaMask. Add the local ganache network as a network in MetaMask and add an account using the private key from the accounts screen in Ganache. 
+6. At checkout, you will be prompted to connect your wallet via MetaMask.
+-Add the local Ganache network in MetaMask
+-Add an account using one of the private keys from Ganache's accounts screen
 
 
 
