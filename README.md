@@ -50,8 +50,12 @@ to deploy the smart contract.
 npm run devStart
 ```
 6. At checkout, you will be prompted to connect your wallet via MetaMask.
--Add the local Ganache network in MetaMask
--Add an account using one of the private keys from Ganache's accounts screen
+-Add custom network:
+-- Network Name: Ganache Local
+--RPC URL: http://127.0.0.1:7545
+--Chain ID: 1337 (or your Ganache network ID)
+--Currency Symbol: ETH
+-Import an account using a private key from Ganache
 
 # TESTING
 ## API Testing with Postman
@@ -67,7 +71,68 @@ In order to prevent too many calls, I collected hotelcodes into an array and pas
 
 When a hotel is selected, using the selected hotel's geo-location, the third API calls 5 experiences and tours within 20km of the hotel and displays them beneath the hotels details. 
 
+## Smart Contract Testing with Mocha/Chai
+
+
+
+
+## MetaMask Integration Testing
+
 
 
 
 # EVAULATION
+
+
+```mermaid
+graph LR
+  U["User in Browser"] --> UI["Hotel Finder Web App\n(HTML / CSS / JS)"]
+  UI -->|"fetch /api/hotels\n/api/bookings"| S["Node / Express\nserver.js"]
+  S -->|"HTTPS"| A["Amadeus Hotel API"]
+
+  UI -->|"ethers.js\nwindow.ethereum"| MM["MetaMask\nbrowser extension"]
+  MM -->|"JSON-RPC"| G["Ganache\nlocalhost:8545\nchainId 1337"]
+  G -->|"executes"| C["HotelBooking.sol\nsmart contract"]
+
+  CU["Customer Account 0"] --> G
+  G -->|"forwards ETH"| V["Vendor Account 1"]
+
+```
+
+```mermaid
+graph LR
+  %% --- Class definitions (colors/styles) ---
+  classDef ui       fill:#0f172a,stroke:#38bdf8,color:#e5e7eb,stroke-width:1.5px;
+  classDef backend  fill:#022c22,stroke:#34d399,color:#e5e7eb,stroke-width:1.5px;
+  classDef chain    fill:#111827,stroke:#a855f7,color:#e5e7eb,stroke-width:1.5px;
+  classDef account  fill:#020617,stroke:#f97316,color:#e5e7eb,stroke-dasharray:4 2,stroke-width:1.5px;
+  classDef external fill:#020617,stroke:#9ca3af,color:#e5e7eb,stroke-dasharray:3 3;
+
+  %% --- Browser & UI lane ---
+  subgraph Browser["Browser & UI"]
+    U["User in Browser"] --> UI["Hotel Finder Web App\n(HTML / CSS / JS)"]
+  end
+
+  %% --- Backend lane ---
+  subgraph Backend["Node Backend & Amadeus"]
+    UI -->|"fetch /api/hotels\n/api/bookings"| S["Node / Express\nserver.js"]
+    S -->|"HTTPS"| A["Amadeus Hotel API"]
+  end
+
+  %% --- Chain lane ---
+  subgraph Chain["Wallet & Local Blockchain"]
+    UI -->|"ethers.js\nwindow.ethereum"| MM["MetaMask\nbrowser extension"]
+    MM -->|"JSON-RPC"| G["Ganache\nlocalhost:8545\nchainId 1337"]
+    G -->|"executes"| C["HotelBooking.sol\nsmart contract"]
+    CU["Customer Account 0"] --> G
+    G -->|"forwards ETH"| V["Vendor Account 1"]
+  end
+
+  %% --- Apply classes ---
+  class U,UI ui;
+  class S backend;
+  class A external;
+  class MM,G,C chain;
+  class CU,V account;
+
+```
