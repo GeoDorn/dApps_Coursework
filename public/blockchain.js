@@ -350,7 +350,7 @@ async function payForBooking(
     signer
   );
 
-  // Convert USD → ETH
+  // Convert Currency -> ETH
   const ethAmount = (price / CURRENCY_PER_ETH).toFixed(4);
   const valueInWei = ethers.utils.parseEther(ethAmount);
 

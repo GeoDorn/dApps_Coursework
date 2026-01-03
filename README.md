@@ -33,7 +33,7 @@ Amadeus is used to query hotels via citycode, hotel offers using that city code 
 For this prototype, Ganache and MetaMask have been used in conjunction to simulate a local blockchain for testing purposes. 
 
 1. Install both Ganache and MetaMask via their websites.
-2. Create a new workspace inside Ganache which will create 10 accounts for us to use.
+2. Create a new workspace inside Ganache, which will create 10 accounts for us to use.
 3. Use
 ```
 truffle compile
@@ -61,7 +61,7 @@ npm run devStart
 
 # Testing
 ## API Testing with Postman
-Initially when creating the API calls and setting the scope of the project. Postman was used to test token authentication and initial fetch requests.
+Initially, when creating the API calls and setting the scope of the project, Postman was used to test token authentication and initial fetch requests.
 
 Using the publicly available [Amadeus Postman Workspace](https://www.postman.com/amadeus4dev/amadeus-for-developers-s-public-workspace/collection/kquqijj/amadeus-for-developers), initial test queries and endpoints could be setup in the server.js.
 
@@ -81,11 +81,11 @@ When a hotel is selected, using the selected hotel's geo-location, the third API
 ### Smart Contract Overview
 The GlobotourWallet.sol contract manages financial transactions, providing secure and transparent payments that can be tracked via Ganache.
 
-The contract allows users to deposit funds from their MetaMask accounts into their Globotour wallet. It validates that deposit amounts are positive and emits a Deposit event, enabling tracking of funds within Ganache.
+The contract allows users to deposit funds from their MetaMask accounts into their GloboTour wallet. It validates that deposit amounts are positive and emits a Deposit event, enabling tracking of funds within Ganache.
 
 The makeBooking() function handles hotel bookings by first validating that the user has a sufficient balance in their Globotour wallet. It then deducts the booking amount from the user’s balance, creates a booking record linked to the user, transfers the ETH to the vendor’s wallet, and emits a BookingCreated event to track the transaction.
 
-Additionally, a PaymentSent event is included to provide further transparency. Together, these three events—Deposit, BookingCreated, and PaymentSent—allow Globotour staff to monitor all transactions and ensure accountability.
+Additionally, a PaymentSent event is included to provide further transparency. Together, these three events (Deposit, BookingCreated, and PaymentSent) allow GloboTour staff to monitor all transactions and ensure accountability.
 
 ### Testing
 Mocha and Chai is used to test smart contracts on a local Ganache instance to simulate real Ethereum transactions.
@@ -157,7 +157,7 @@ it("creates a booking and sends ETH to vendor", async () => {
   });
 ```
 - Ensures that bookings correctly deduct user balance.
-- Confirms that ETH is ent to the vendor.
+- Confirms that ETH is sent to the vendor.
 - Verifies that BookingCreated and PaymentSent events are emitted for monitoring.
 
 Booking with Insufficient Balance
@@ -340,7 +340,7 @@ Result: ✓ Pass - Block number, gas, status all visible
 # Evaluation
 ## Technologies
 1. Amadeus Travel API
-The Amadeus Travel API was essential in accessing real-world hotel data. The ability to search for hotels in major cities across the globe and retrieve experiences and pricing allowed the prototype to work with "live" data. While the documentation was extremely helpful, having to use two APIs to get one filtered list was an issue. The lack of pagination also proved difficult as I had to then use batches to sort through two JSON arrays to find hotels with availability. However, having a dedicated workspace to build API calls through proved invaluable and was essential in trouble shooting bugs. OAuth2 authentication is robust, users must be careful not to expose sensitive credentials, hence why the .env is not provided in the git repo.
+The Amadeus Travel API was essential in accessing real-world hotel data. The ability to search for hotels in major cities across the globe and retrieve experiences and pricing allowed the prototype to work with "live" data. While the documentation was extremely helpful, having to use two API calls to get one filtered list was an issue. The lack of pagination also proved difficult as I had to then use batches to sort through two JSON arrays to find hotels with availability. However, having a dedicated workspace to build API calls through proved invaluable and was essential in trouble shooting bugs. OAuth2 authentication is robust, however, users must be careful not to expose sensitive credentials, hence why the .env is not provided in the git repo.
 
 2. Smart Contracts
 The blockchain provides unmatched transparency and security for financial transactions, although I found the setup to be quite complex, especially connecting it to MetaMask. Ganache is a great tool to use for testing smart contracts and distributed applications, although it is quite complex for new users. Due to the immutability of smart contracts, once a contract is deployed, it cannot be altered, adding to the security of the transaction.
@@ -363,7 +363,7 @@ In conclusion, the prototype GloboTour app fulfils the requirements of the custo
 
 - At present, all bookings go to the vendor (GloboTour), implement a handoff where GloboTour take commission before sending funds to the hotel provider.
 
-That being said, the prototype still accomplishes:
+That being said, the prototype still successfully accomplishes:
 
 - API consumption and integration (Task 1)
 - Smart contract development and deployment (Task 2)
